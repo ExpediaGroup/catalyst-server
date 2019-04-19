@@ -1,0 +1,10 @@
+{
+    // server configuration and application context variables.
+   "server": { 
+       "app": {
+       }
+   },
+   // Hapi plugins
+   "register": {
+   }
+}

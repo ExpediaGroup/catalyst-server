@@ -1,0 +1,19 @@
+{
+    "server": {
+        "port": "exec:./utils#resolvePort",
+        "host": "exec:./utils#resolveHost",
+        "state": {
+            "strictHeader": false
+        }
+    },
+    "register": {
+        "crumb": {
+            "plugin": "require:crumb",
+            "options": "require:./plugins/config/crumb.js"
+        },
+        "hapi-pino":{
+            "plugin": "require:hapi-pino",
+            "options": "require:./plugins/config/hapi-pino.js"
+        }
+    }
+}
