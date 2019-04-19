@@ -37,10 +37,10 @@ start();
 ```
 
 #### manifest.json
-```json
+```js
 {
      // server configuration and application context variables.
-    "server": { 
+    "server": {
         "app": {
         }
     },
@@ -62,10 +62,10 @@ Below is a basic example of a `manifest.json` file:
 
 #### Basic manifest.json
 
-```json
+```js
 {
      // server configuration and application context variables.
-    "server": { 
+    "server": {
         "app": {
             "urlPrefix": "temp/",
             "siteTitle": "temp site"
@@ -79,7 +79,7 @@ Below is a basic example of a `manifest.json` file:
         "Vision": {
             "register": "require:vision",
             "options": {
-                "engines": { 
+                "engines": {
                     "html": "require:handlebars"
                 },
                 "path": "path:./templates"
@@ -116,10 +116,10 @@ Steerage also uses [confidence](https://github.com/hapijs/confidence) to give yo
 
 #### Environment based manifest.json
 
-```json
+```js
 {
      // server configuration and application context variables.
-    "server": { 
+    "server": {
         "app": {
             "urlPrefix": {
                 "$filter": "env.NODE_ENV",
@@ -135,9 +135,9 @@ Steerage also uses [confidence](https://github.com/hapijs/confidence) to give yo
             "options": {
                 "cookieOptions": {
                     "isSecure": {
-                        "$filter": "env.NODE_ENV", 
+                        "$filter": "env.NODE_ENV",
                         "development": false,
-                        "$default": true 
+                        "$default": true
                     }
                 },
                 "restful": true
@@ -219,7 +219,7 @@ Here are some examples of the short-stop resolvers available that makes handling
 ```
 * will use [vm](https://nodejs.org/api/vm.html) to evaluate the string and set the `start` to the current date time as an ISO string.
 
-```json
+```js
     {
         "server": {
             "app":{
@@ -235,7 +235,7 @@ Here are some examples of the short-stop resolvers available that makes handling
 
 * eval can also be used to reference other values in the `manifest`. In the above example the `child/value` in `server/app` will be set to `'abc_xyz'`.
 
-## Example Code 
+## Example Code
 
 See the [examples folder](examples) for an example.
 
