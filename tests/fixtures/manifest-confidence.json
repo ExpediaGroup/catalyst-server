@@ -1,0 +1,15 @@
+{
+    "register": {
+        "$filter": "env.NODE_ENV",
+        "$base": {
+            "hapi-pino": {
+                "enabled": false
+            }
+        },
+        "production": {
+            "test-plugin": {
+                "plugin": "require:./testPlugin"
+            }
+        }
+    }
+}
