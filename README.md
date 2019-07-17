@@ -17,7 +17,7 @@ Catalyst-server is a configuration and composition management tool for Hapi.js a
 
 ## Usage
 
-1. Install hapi and catalyst-server `npm i @vrbo/catalyst-server hapi` into an empty node project
+1. Install catalyst-server and hapi into an empty node project with `npm i @vrbo/catalyst-server @hapi/hapi` 
 2. Create an `index.js` file for starting your server (example below).
 3. Create a `manifest.json` for composition and configuration (example below).
 4. Start your app `node index.js`
@@ -32,8 +32,11 @@ async function start(options = {}) {
         ...options,
         userConfigPath: Path.resolve(__dirname, 'manifest.json')
     });
+
     await server.start();
+
     server.log(['info'], `server running: ${server.info.uri}`);
+
     return server;
 }
 
@@ -58,13 +61,13 @@ start();
 
 Catalyst-server uses [steerage](https://github.com/tlivings/steerage) to configure and compose your application.  It is environment aware and has some configuration protocols to resolve paths, read environment variables, import other JSON files, and more.
 
-### Basic
+### Basic example
 
-At its core, catalyst-server loads a `manifest.json` to initial and start a Hapi.js server.  This file has a section for application configuration and composition via registering plugins.
+At its core, `catalyst-server` loads a `manifest.json` file to initialize and start up a Hapi.js server.  This file has a section for application configuration and composition via registering plugins.
 
 Below is a basic example of a `manifest.json` file:
 
-#### Basic manifest.json
+#### manifest.json
 
 ```js
 {
@@ -93,16 +96,16 @@ Below is a basic example of a `manifest.json` file:
 }
 ```
 
-For the configuration you can access the values in the `server/app` section from inside your code from the the `server.app.config` object.  So the code to retrieve the example values look like this:
+You can access all the configuration values in your code from the `server.app.config` object.  So the code to retrieve the example values looks like this:
 
 ```javascript
 const urlPrefix = server.app.config.get('urlPrefix');
 const siteTitle = server.app.config.get('siteTitle');
 ```
 
-The `register` block registers the plugins referenced.  In this example it is using [shortstop](https://github.com/krakenjs/shortstop) to resolve node modules using `require:[module]` and resolve paths using `path:[file_path]`.
+The `register` block registers the plugins referenced.  In this example, it is using [shortstop](https://github.com/krakenjs/shortstop) to resolve node modules using `require:[module]` and resolve paths using `path:[file_path]`.
 
-Catalyst-server comes with the following short-stop resolvers:
+Catalyst-server ships with the following `shortstop` resolvers by default:
 
 * __file__ - read a file.
 * __path__ - resolve a path.
@@ -116,7 +119,7 @@ Catalyst-server comes with the following short-stop resolvers:
 
 ### Environment Aware
 
-Steerage also uses [confidence](https://github.com/hapijs/confidence) to give you the ability to build environmentally aware servers. See the example `manifest.json` file below.
+`Steerage` uses [confidence](https://github.com/hapijs/confidence) to give you the ability to build environmentally aware servers. See the example `manifest.json` file below.
 
 #### Environment based manifest.json
 
@@ -151,7 +154,11 @@ Steerage also uses [confidence](https://github.com/hapijs/confidence) to give yo
 }
 ```
 
-Here you can see the `$filter` and `$default` fields.  These fields allow for filtering on a resolver like `env.NODE_ENV`. The `$filter` field evaluates the environment variable `NODE_ENV`. Then it will look to the following fields for a match in the keys for that value, otherwise the `$default` value is used. So the configuration values and options for plugins will change based on the environment variable `NODE_ENV`. You could also determine whether plugin should be registered at all. See the code below for an example based on this `manifest.json` file.
+in this example, the `$filter` and `$default` fields allow for filtering based on a resolver like `env.NODE_ENV`. 
+
+The `$filter` field evaluates the environment variable `NODE_ENV`. Then, it will look to the following fields for a match in the keys for that value. Otherwise, the `$default` value is used. So the configuration values and options for plugins will change based on the environment variable `NODE_ENV`.
+
+You could also determine whether a plugin should be registered at all. See the code below for an example based on this `manifest.json` file.
 
 ```javascript
 // ENVIRONMENT VARIABLE NODE_ENV='development'
@@ -167,7 +174,7 @@ const urlPrefix = server.app.config.get('urlPrefix');
 
 ### Advanced
 
-Here are some examples of the short-stop resolvers available that makes handling complex configuration and composition rather straight forward.
+Here are some examples of the `shortstop` resolvers which make handling complex configuration and composition rather straight forward.
 
 #### `file:` Reading a file into a value.
 ```json
@@ -237,11 +244,11 @@ Here are some examples of the short-stop resolvers available that makes handling
     }
 ```
 
-* eval can also be used to reference other values in the `manifest`. In the above example the `child/value` in `server/app` will be set to `'abc_xyz'`.
+* `eval` can also be used to reference other values in the `manifest`. In the above example the `child/value` in `server/app` will be set to `'abc_xyz'`.
 
 ## Example Code
 
-See the [examples folder](examples) for an example.
+See the [examples](examples) folder for example code.
 
 ## Further Reading
 
