@@ -56,7 +56,7 @@
   "dependencies": {
     "crumb": "^7.2.3",
     "determination": "^2.0.0",
-    "hapi-pino": "^6.0.1",
+    "hapi-pino": "^5.2.0",
     "hoek": "^6.1.2",
     "joi": "^14.3.0",
     "shortstop-handlers": "^1.0.1",
