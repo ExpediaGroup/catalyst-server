@@ -16,10 +16,11 @@
     "joonastanner"
   ],
   "scripts": {
-    "test:unit": "NODE_ENV=test tape ./tests/unit/**/*.test.js | tap-spec",
-    "test:integration": "NODE_ENV=test tape ./tests/integration/**/*.test.js | tap-spec",
-    "test:coverage": "nyc --reporter=text --reporter=text-summary --reporter=html --lines 0 --functions 0 --branches 0 npm run test:unit",
-    "test": "standard ./lib/**/*.js && npm run test:integration && npm run test:coverage"
+    "build": "echo 'noop'",
+    "test": "standard --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
+    "mocha": "mocha 'tests/**/*.js'",
+    "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html --report-dir=docs/reports/coverage npm run mocha",
+    "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
   },
   "repository": {
     "type": "git",
@@ -45,11 +46,12 @@
   },
   "devDependencies": {
     "@hapi/hapi": "^18.3.1",
-    "nyc": "^13.1.0",
-    "sinon": "^7.2.2",
-    "standard": "^12.0.1",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "nyc": "^14.1.1",
+    "sinon": "^7.3.2",
+    "standard": "^13.0.2",
+    "mocha": "^6.1.4"
   },
   "dependencies": {
     "@hapi/crumb": "^7.2.3",

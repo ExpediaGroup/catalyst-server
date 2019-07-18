@@ -1,0 +1,7 @@
+{
+    "register": {
+        "hapi-pino": {
+            "enabled": false
+        }
+    }
+}

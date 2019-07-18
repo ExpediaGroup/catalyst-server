@@ -1,0 +1,8 @@
+{
+    "server": {
+        "app": {
+            "thing": "something",
+            "eval": "eval:${server.app.thing}"
+        }
+    }
+}
