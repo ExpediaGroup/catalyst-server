@@ -172,13 +172,17 @@ const urlPrefix = server.app.config.get('urlPrefix');
 // crumb WILL use secure cookies.
 ```
 
-You can also easily determine whether a plugin should be enabled at all. See the code below for an example disabling `hapi-pino` in the `manifest.json` file.
+Using a filter, you can easily enable/disable a plugin for a given environment. See the code below for an example, where we disable `hapi-pino` in development mode, and enable it in all other environments:
 
 ```javascript
 {
     "register": {
         "hapi-pino": {
-            "enabled": false
+            "enabled": {
+                "$filter": "env.NODE_ENV",
+                "development": false,
+                "$default": true
+            }
         }
     }
 }
