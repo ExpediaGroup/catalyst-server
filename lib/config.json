@@ -8,7 +8,7 @@
     },
     "register": {
         "crumb": {
-            "plugin": "require:crumb",
+            "plugin": "require:@hapi/crumb",
             "options": "require:./plugins/config/crumb.js"
         },
         "hapi-pino":{
