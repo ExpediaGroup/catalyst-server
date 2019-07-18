@@ -1,0 +1,10 @@
+{
+    "server": {
+        "port": 3000
+    },
+    "register": {
+        "test-plugin": {
+            "plugin": "require:./testPlugin"
+        }
+    }
+}

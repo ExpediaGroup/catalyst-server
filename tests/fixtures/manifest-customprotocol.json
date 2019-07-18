@@ -1,0 +1,8 @@
+{
+    "server": {
+        "app": {
+            "thing": "something",
+            "custom": "custom:something"
+        }
+    }
+}

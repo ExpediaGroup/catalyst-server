@@ -1,0 +1,7 @@
+{
+    "register": {
+        "test-plugin": {
+            "plugin": "require:./testPlugin"
+        }
+    }
+}
