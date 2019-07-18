@@ -1,3 +1,5 @@
+/* eslint-env mocha */
+
 'use strict'
 
 const Path = require('path')
@@ -19,8 +21,6 @@ describe('Catalyst', () => {
     const registeredPluginNames = Object.keys(server.registrations)
 
     expect(registeredPluginNames).to.include.members(defaultPlugins)
-
-    await server.stop()
   })
 
   it('should load a plugin from a manifest', async () => {
@@ -30,8 +30,6 @@ describe('Catalyst', () => {
 
     const response = await server.inject('/test')
     expect(response.result).to.equal('test response')
-
-    await server.stop()
   })
 
   it('should override the default port', async () => {
@@ -40,8 +38,6 @@ describe('Catalyst', () => {
     })
 
     expect(server.info.port).to.equal(3000)
-
-    await server.stop()
   })
 
   it('should allow baseDir to be altered', async () => {
@@ -52,8 +48,6 @@ describe('Catalyst', () => {
 
     const response = await server.inject('/testbasedir')
     expect(response.result).to.equal('test response')
-
-    await server.stop()
   })
 
   it('should allow for disabling a default plugin', async () => {
@@ -62,8 +56,6 @@ describe('Catalyst', () => {
     })
 
     expect(server.registrations['hapi-pino']).to.be.an('undefined')
-
-    await server.stop()
   })
 
   it('should parse invalid cookies', async () => {
@@ -80,8 +72,6 @@ describe('Catalyst', () => {
     })
 
     expect(response.statusCode).to.equal(200)
-
-    await server.stop()
   })
 
   it('should work as expected with the confidence module', async () => {
@@ -103,8 +93,6 @@ describe('Catalyst', () => {
 
     expect(response.result).to.equal('test response')
 
-    await server.stop()
-
     process.env.NODE_ENV = origNodeEnv
   })
 
@@ -119,8 +107,6 @@ describe('Catalyst', () => {
       })
 
       expect(server.info.port).to.equal(9000)
-
-      await server.stop()
     })
 
     it('should be able to change plugins prior to registration', async () => {
@@ -133,8 +119,6 @@ describe('Catalyst', () => {
       })
 
       expect(server.registrations.testPlugin.version).to.equal('2.0.0')
-
-      await server.stop()
     })
 
     it('should be able to change the manifest', async () => {
@@ -149,10 +133,7 @@ describe('Catalyst', () => {
       expect(server.settings.router.stripTrailingSlash).to.equal(false)
 
       const response = await server.inject('/test')
-
       expect(response.result).to.equal('test response')
-
-      await server.stop()
     })
 
     it('should reject if a lifecycle hook returns an error', () => {
@@ -168,19 +149,17 @@ describe('Catalyst', () => {
     })
 
     it('should support `eval` protocol', async () => {
-      const server = await Catalyst.init({
+      await Catalyst.init({
         userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-eval.json'),
         onConfig (defaults) {
           expect(defaults.get('server.app.eval')).to.equal('something')
           return defaults
         }
       })
-
-      await server.stop()
     })
 
     it('should support additional user-provided shortstop protocols', async () => {
-      const server = await Catalyst.init({
+      await Catalyst.init({
         userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-customprotocol.json'),
         onConfig (defaults) {
           expect(defaults.get('server.app.custom')).to.equal('SOMETHING')
@@ -192,8 +171,6 @@ describe('Catalyst', () => {
           }
         }
       })
-
-      await server.stop()
     })
 
     it('should reject if manifest does not conform to schema', () => {

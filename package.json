@@ -61,17 +61,5 @@
     "joi": "^14.3.0",
     "shortstop-handlers": "^1.0.1",
     "steerage": "^7.0.2"
-  },
-  "standard": {
-    "globals": [
-      "describe",
-      "context",
-      "before",
-      "beforeEach",
-      "after",
-      "afterEach",
-      "it",
-      "expect"
-    ]
   }
 }
