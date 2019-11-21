@@ -1,7 +1,7 @@
 # @vrbo/catalyst-server
 [![NPM Version](https://img.shields.io/npm/v/@vrbo/catalyst-server.svg?style=flat-square)](https://www.npmjs.com/package/@vrbo/catalyst-server)
-[![Build Status](https://travis-ci.org/homeaway/catalyst-server.svg?branch=master)](https://travis-ci.org/homeaway/catalyst-server)
-[![Dependency Status](https://david-dm.org/homeaway/catalyst-server.svg?theme=shields.io)](https://david-dm.org/homeaway/catalyst-server)
+[![Build Status](https://travis-ci.org/expediagroup/catalyst-server.svg?branch=master)](https://travis-ci.org/expediagroup/catalyst-server)
+[![Dependency Status](https://david-dm.org/expediagroup/catalyst-server.svg?theme=shields.io)](https://david-dm.org/expediagroup/catalyst-server)
 [![NPM Downloads](https://img.shields.io/npm/dm/@vrbo/catalyst-server.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vrbo/catalyst-server)
 
 *   [Introduction](#introduction)
@@ -17,7 +17,7 @@ Catalyst-server is a configuration and composition management tool for Hapi.js a
 
 ## Usage
 
-1. Install catalyst-server and hapi into an empty node project with `npm i @vrbo/catalyst-server @hapi/hapi` 
+1. Install catalyst-server and hapi into an empty node project with `npm i @vrbo/catalyst-server @hapi/hapi`
 2. Create an `index.js` file for starting your server (example below).
 3. Create a `manifest.json` for composition and configuration (example below).
 4. Start your app `node index.js`
@@ -154,7 +154,7 @@ Catalyst-server ships with the following `shortstop` resolvers by default:
 }
 ```
 
-In this example, the `$filter` and `$default` fields allow for filtering based on a resolver like `env.NODE_ENV`. 
+In this example, the `$filter` and `$default` fields allow for filtering based on a resolver like `env.NODE_ENV`.
 
 The `$filter` field evaluates the environment variable `NODE_ENV`. Then, it will look to the following fields for a match in the keys for that value. Otherwise, the `$default` value is used. So the configuration values and options for plugins will change based on the environment variable `NODE_ENV`.
 
