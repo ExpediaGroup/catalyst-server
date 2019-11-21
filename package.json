@@ -24,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/homeaway/catalyst-server"
+    "url": "https://github.com/expediagroup/catalyst-server"
   },
   "bugs": {
-    "url": "https://github.com/homeaway/catalyst-server/issues"
+    "url": "https://github.com/expediagroup/catalyst-server/issues"
   },
   "engines": {
     "node": ">=8.0.0",
@@ -35,10 +35,15 @@
   },
   "keywords": [
     "hapi.js",
+    "catalyst",
     "catalyst-server",
     "node.js",
     "configuration",
-    "management"
+    "management",
+    "homeaway",
+    "vrbo",
+    "expedia",
+    "expediagroup"
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
