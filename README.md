@@ -143,8 +143,8 @@ Catalyst-server ships with the following `shortstop` resolvers by default:
                 "cookieOptions": {
                     "isSecure": {
                         "$filter": "env.NODE_ENV",
-                        "development": false,
-                        "$default": true
+                        "production": true,
+                        "$default": false
                     }
                 },
                 "restful": true
@@ -180,8 +180,8 @@ Using a filter, you can easily enable/disable a plugin for a given environment. 
         "hapi-pino": {
             "enabled": {
                 "$filter": "env.NODE_ENV",
-                "development": false,
-                "$default": true
+                "production": true,
+                "$default": false
             }
         }
     }

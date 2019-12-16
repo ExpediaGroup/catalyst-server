@@ -9,11 +9,27 @@
     "register": {
         "crumb": {
             "plugin": "require:@hapi/crumb",
-            "options": "require:./plugins/config/crumb.js"
+            "options": {
+                "cookieOptions": {
+                    "isSecure": {
+                        "$filter": "env.NODE_ENV",
+                        "production": true,
+                        "$default": false
+                    }
+                }
+            }
         },
         "hapi-pino":{
             "plugin": "require:hapi-pino",
-            "options": "require:./plugins/config/hapi-pino.js"
+            "options": {
+                "prettyPrint": {
+                    "$filter": "env.NODE_ENV",
+                    "production": false,
+                    "$default": {
+                        "translateTime": true
+                    }
+                }
+            }
         }
     }
 }
