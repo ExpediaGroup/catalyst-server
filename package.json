@@ -61,7 +61,7 @@
     "nyc": "^15.0.0",
     "sinon": "^8.0.0",
     "standard": "^14.0.0",
-    "mocha": "^6.1.4"
+    "mocha": "^7.0.0"
   },
   "dependencies": {
     "@hapi/crumb": "^7.2.3",
