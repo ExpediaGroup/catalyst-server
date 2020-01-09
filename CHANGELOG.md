@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 2.1.0 - 2020-01-09
 ### Changed
 - Use `@vrbo` namespaced versions of `steerage` and `determination`
+- Updated `determination` to v3
+- Updated `standard`, `sinon`, and `nyc` dev deps
 
 ## 2.0.2 - 2019-12-17
 ### Fixed
