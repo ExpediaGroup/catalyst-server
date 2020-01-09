@@ -11,7 +11,7 @@ Chai.use(ChaiAsPromised)
 describe('Catalyst', () => {
   it('should register the default plugins', async () => {
     const defaultPlugins = [
-      'steerage',
+      '@vrbo/steerage',
       'crumb',
       'hapi-pino'
     ]
@@ -76,7 +76,7 @@ describe('Catalyst', () => {
     const origNodeEnv = process.env.NODE_ENV
     process.env.NODE_ENV = 'production'
 
-    const prodPlugins = ['steerage', 'crumb', 'testPlugin']
+    const prodPlugins = ['@vrbo/steerage', 'crumb', 'testPlugin']
 
     const server = await Catalyst.init({
       userConfigPath: Path.join(__dirname, '..', 'fixtures', 'manifest-confidence.json')

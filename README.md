@@ -59,7 +59,7 @@ start();
 
 ## Configuration and Composition
 
-Catalyst-server uses [steerage](https://github.com/tlivings/steerage) to configure and compose your application.  It is environment aware and has some configuration protocols to resolve paths, read environment variables, import other JSON files, and more.
+Catalyst-server uses [`@vrbo/steerage`](https://github.com/expediagroup/steerage) to configure and compose your application.  It is environment aware and has some configuration protocols to resolve paths, read environment variables, import other JSON files, and more.
 
 ### Basic example
 
@@ -119,7 +119,7 @@ Catalyst-server ships with the following `shortstop` resolvers by default:
 
 ### Environment Aware
 
-`Steerage` uses [confidence](https://github.com/hapijs/confidence) to give you the ability to build environmentally aware servers. See the example `manifest.json` file below.
+`@vrbo/steerage` uses [`confidence`](https://github.com/hapijs/confidence) to give you the ability to build environmentally aware servers. See the example `manifest.json` file below.
 
 #### Environment based manifest.json
 
