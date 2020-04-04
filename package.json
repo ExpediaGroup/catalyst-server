@@ -69,7 +69,7 @@
     "@hapi/joi": "^16.1.7",
     "@vrbo/determination": "^3.0.0",
     "@vrbo/steerage": "^8.0.0",
-    "hapi-pino": "^6.0.1",
+    "hapi-pino": "^7.0.0",
     "shortstop-handlers": "^1.0.1"
   }
 }
