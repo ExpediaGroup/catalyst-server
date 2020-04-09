@@ -1,6 +1,6 @@
 # @vrbo/catalyst-server
 [![NPM Version](https://img.shields.io/npm/v/@vrbo/catalyst-server.svg?style=flat-square)](https://www.npmjs.com/package/@vrbo/catalyst-server)
-[![Build Status](https://travis-ci.org/expediagroup/catalyst-server.svg?branch=master)](https://travis-ci.org/expediagroup/catalyst-server)
+![](https://github.com/ExpediaGroup/catalyst-server/workflows/Node_CI/badge.svg)
 [![Dependency Status](https://david-dm.org/expediagroup/catalyst-server.svg?theme=shields.io)](https://david-dm.org/expediagroup/catalyst-server)
 [![NPM Downloads](https://img.shields.io/npm/dm/@vrbo/catalyst-server.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vrbo/catalyst-server)
 
