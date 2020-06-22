@@ -137,23 +137,6 @@ describe('Catalyst', () => {
     process.env.NODE_ENV = origNodeEnv
   })
 
-  it('should merge custom protocol function', async () => {
-    await Catalyst.init({
-      userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-customprotocol.json'),
-      protocols: () => (
-        {
-          custom (v) {
-            return `${v} out of nothing`
-          }
-        }
-      ),
-      onConfig (defaults) {
-        expect(defaults.get('server.app.custom')).to.equal('something out of nothing')
-        return defaults
-      }
-    })
-  })
-
   describe('lifecycle hooks', () => {
     it('should be able to change connection configuration', async () => {
       const server = await Catalyst.init({
