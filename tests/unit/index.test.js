@@ -21,15 +21,6 @@ describe('Catalyst', () => {
     expect(registeredPluginNames).to.include.members(defaultPlugins)
   })
 
-  it('should load a plugin from a manifest', async () => {
-    const server = await Catalyst.init({
-      userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest.json')
-    })
-
-    const response = await server.inject('/test')
-    expect(response.result).to.equal('test response')
-  })
-
   it('should override the default port', async () => {
     const server = await Catalyst.init({
       userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-port3000.json')
@@ -38,14 +29,66 @@ describe('Catalyst', () => {
     expect(server.info.port).to.equal(3000)
   })
 
-  it('should allow baseDir to be altered', async () => {
-    const server = await Catalyst.init({
-      userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-basedir.json'),
-      baseDir: Path.join(__dirname, '..', 'fixtures', 'basedir')
+  describe('single manifest file passed to userConfigPath', () => {
+    it('should load a plugin from a manifest', async () => {
+      const server = await Catalyst.init({
+        userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest.json')
+      })
+
+      const response = await server.inject('/test')
+      expect(response.result).to.equal('test response')
+
+      await server.stop()
     })
 
-    const response = await server.inject('/testbasedir')
-    expect(response.result).to.equal('test response')
+    it('should allow baseDir to be altered', async () => {
+      const server = await Catalyst.init({
+        userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-basedir.json'),
+        baseDir: Path.join(__dirname, '..', 'fixtures', 'basedir')
+      })
+
+      const response = await server.inject('/testbasedir')
+      expect(response.result).to.equal('test response')
+
+      await server.stop()
+    })
+  })
+
+  describe('multiple manifest files passed as array to userConfigPath', () => {
+    it('should load plugins from multiple manifest files', async () => {
+      const server = await Catalyst.init({
+        userConfigPath: [
+          Path.join(__dirname, '..', 'fixtures/manifest.json'),
+          Path.join(__dirname, '..', 'fixtures/external/manifest-external.json')
+        ]
+      })
+
+      const response = await server.inject('/test')
+      expect(response.result).to.equal('test response')
+
+      const responseExternal = await server.inject('/test-external')
+      expect(responseExternal.result).to.equal('test response external')
+
+      await server.stop()
+    })
+
+    it('should allow baseDir to be altered', async () => {
+      const server = await Catalyst.init({
+        userConfigPath: [
+          Path.join(__dirname, '..', 'fixtures/manifest-basedir.json'),
+          Path.join(__dirname, '..', 'fixtures/external/manifest-external-basedir.json')
+        ],
+        baseDir: Path.join(__dirname, '..', 'fixtures', 'basedir')
+      })
+
+      const response = await server.inject('/testbasedir')
+      expect(response.result).to.equal('test response')
+
+      const responseExternal = await server.inject('/test-external-basedir')
+      expect(responseExternal.result).to.equal('test response external basedir')
+
+      await server.stop()
+    })
   })
 
   it('should allow for disabling a default plugin', async () => {
@@ -188,12 +231,27 @@ describe('Catalyst', () => {
       })
     })
 
-    it('should reject if manifest does not conform to schema', () => {
-      const promise = Catalyst.init({
-        userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-schema.json')
-      })
+    describe('single manifest file passed to userConfigPath', () => {
+      it('should reject if manifest does not conform to schema', () => {
+        const promise = Catalyst.init({
+          userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-schema.json')
+        })
 
-      return expect(promise).to.be.rejectedWith(Error)
+        return expect(promise).to.be.rejectedWith(Error)
+      })
+    })
+
+    describe('multiple manifest files passed as array to userConfigPath', () => {
+      it('should reject if one or more manifest files do not conform to schema', () => {
+        const promise = Catalyst.init({
+          userConfigPath: [
+            Path.join(__dirname, '..', 'fixtures/manifest.json'), // valid
+            Path.join(__dirname, '..', 'fixtures/external/manifest-schema.json') // invalid
+          ]
+        })
+
+        return expect(promise).to.be.rejectedWith(Error)
+      })
     })
 
     it('should reject if plugin options do not conform to schema', () => {
