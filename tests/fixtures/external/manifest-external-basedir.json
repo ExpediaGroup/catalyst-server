@@ -1,0 +1,7 @@
+{
+    "register": {
+        "test-plugin-external": {
+            "plugin": "require:./baseDirTestPluginExternal"
+        }
+    }
+}

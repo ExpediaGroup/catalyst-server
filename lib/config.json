@@ -1,6 +1,8 @@
 {
     "server": {
+        // resolve port based on env var NODE_PORT, falls back to default 8080
         "port": "exec:./utils#resolvePort",
+        // resolve host based on env var HOSTNAME, falls back to default '0.0.0.0'
         "host": "exec:./utils#resolveHost",
         "state": {
             "strictHeader": false
