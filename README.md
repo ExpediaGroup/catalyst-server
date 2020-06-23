@@ -13,7 +13,7 @@
 *   [Further Reading](#further-reading)
 
 ## Introduction
-Catalyst-server is a configuration and composition management tool for Hapi.js applications. It allows for composition and configuration that is environment aware and extensible for a web application. This is managed from one or more `manifest.json` files. The `userConfigPath` accepts a string that is a path to a single `manifest.json` file, or an array of path strings to support merging multiple manifest files. The server also will include sensible defaults and implementations  (like [hapi-pino](https://github.com/pinojs/hapi-pino) for logging and [crumb](https://github.com/hapijs/crumb) for CSRF).
+Catalyst-server is a configuration and composition management tool for Hapi.js applications. It allows for composition and configuration that is environment aware and extensible for a web application. This is managed from one or more `manifest.json` files. The `userConfigPath` accepts a string that is a path to a single `manifest.json` file, or an array of path strings to support merging multiple manifest files. Duplicate keys in configuration files will be overwritten upon merging. The values of the config file that is the first index of `userConfigPaths` takes precedence when merging. The server also will include sensible defaults and implementations  (like [hapi-pino](https://github.com/pinojs/hapi-pino) for logging and [crumb](https://github.com/hapijs/crumb) for CSRF).
 
 ## Usage
 
