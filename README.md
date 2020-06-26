@@ -13,7 +13,7 @@
 *   [Further Reading](#further-reading)
 
 ## Introduction
-Catalyst-server is a configuration and composition management tool for Hapi.js applications. It allows for composition and configuration that is environment aware and extensible for a web application. This is managed from a single `manifest.json` file. The server also will include sensible defaults and implementations  (like [hapi-pino](https://github.com/pinojs/hapi-pino) for logging and [crumb](https://github.com/hapijs/crumb) for CSRF).
+Catalyst-server is a configuration and composition management tool for Hapi.js applications. It allows for composition and configuration that is environment aware and extensible for a web application. This is managed from one or more `manifest.json` files. The `userConfigPath` accepts a string that is a path to a single `manifest.json` file, or an array of path strings to support merging multiple manifest files. Duplicate keys in configuration files will be overwritten upon merging. If an array is passed, values of the config file that is the last index of `userConfigPath` takes precedence when merging, otherwise values from the single config file passed to `userConfigPath` takes precedence. The server also will include sensible defaults and implementations  (like [hapi-pino](https://github.com/pinojs/hapi-pino) for logging and [crumb](https://github.com/hapijs/crumb) for CSRF).
 
 ## Usage
 
@@ -27,6 +27,7 @@ Catalyst-server is a configuration and composition management tool for Hapi.js a
 const Catalyst = require('@vrbo/catalyst-server');
 const Path = require('path');
 
+// Init a new Catalyst server, and pass the path to your manifest file to the userConfigPath option to compose your app plugins
 async function start(options = {}) {
     const server = await Catalyst.init({
         ...options,
@@ -41,6 +42,16 @@ async function start(options = {}) {
 }
 
 start();
+```
+
+```javascript
+// Alternatively, pass an array of paths to compose your app plugins from separate manifest files.
+const server = await Catalyst.init({
+    userConfigPath: [
+        path.resolve(__dirname, 'manifest.json'),
+        path.resolve(__dirname, '/external/manifest.json')
+    ]
+});
 ```
 
 #### manifest.json
