@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### 3.0.0 - 2020-08-10
+
+- [Breaking] Drop support for node < 12.
+- Update Github test workflow to only test node v 12.x
+- Update dependencies, npm, and engines in package.json to support node version >= 12.
+
 ## 2.2.0 - 2020-06-26
 ### Changed
 - Add support for merging multiple manifest files.
