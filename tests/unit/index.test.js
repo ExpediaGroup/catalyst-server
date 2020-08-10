@@ -12,7 +12,7 @@ describe('Catalyst', () => {
   it('should register the default plugins', async () => {
     const defaultPlugins = [
       '@vrbo/steerage',
-      'crumb',
+      '@hapi/crumb',
       'hapi-pino'
     ]
     const server = await Catalyst.init()
@@ -119,7 +119,7 @@ describe('Catalyst', () => {
     const origNodeEnv = process.env.NODE_ENV
     process.env.NODE_ENV = 'production'
 
-    const prodPlugins = ['@vrbo/steerage', 'crumb', 'testPlugin']
+    const prodPlugins = ['@vrbo/steerage', '@hapi/crumb', 'testPlugin']
 
     const server = await Catalyst.init({
       userConfigPath: Path.join(__dirname, '..', 'fixtures', 'manifest-confidence.json')
