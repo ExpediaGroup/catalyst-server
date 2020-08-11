@@ -6,6 +6,20 @@
         "host": "execBase:./utils#resolveHost",
         "state": {
             "strictHeader": false
+        },
+        "router": {
+            "stripTrailingSlash": true
+        },
+        "routes": {
+            "response": {
+                "emptyStatusCode": 204
+            },
+            "state": {
+                "failAction": "log"
+            },
+            "security": {
+                "xframe": "sameorigin"
+            }
         }
     },
     "register": {
