@@ -55,3 +55,5 @@ Makefile
 Todo.md
 .travis.yml
 .nyc_output
+renovate.json
+.vscode
