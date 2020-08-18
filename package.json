@@ -52,23 +52,23 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@hapi/hapi": ">=19.0.0"
+    "@hapi/hapi": ">=20.0.0"
   },
   "dependencies": {
     "@hapi/crumb": "^8.0.0",
     "@hapi/hoek": "^9.0.4",
-    "@vrbo/steerage": "^9.0.0",
-    "hapi-pino": "^8.0.1",
+    "@vrbo/steerage": "^10.0.0",
+    "hapi-pino": "^8.1.0",
     "joi": "^17.2.0",
     "shortstop-handlers": "^1.0.1"
   },
   "devDependencies": {
-    "@hapi/hapi": "^19.2.0",
+    "@hapi/hapi": "^20.0.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "nyc": "^15.0.0",
-    "sinon": "^9.0.0",
-    "standard": "^14.0.0",
+    "nyc": "^15.1.0",
+    "sinon": "^9.0.3",
+    "standard": "^14.3.4",
     "mocha": "^8.0.0"
   }
 }
