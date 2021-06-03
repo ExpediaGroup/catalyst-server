@@ -29,6 +29,17 @@ describe('Catalyst', () => {
     expect(server.info.port).to.equal(3000)
   })
 
+  it('should register provided routes', async () => {
+    const server = await Catalyst.init({
+      userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-routes.json')
+    })
+
+    const response = await server.inject('/my-file.txt')
+    expect(response.result).to.equal('hello-world')
+
+    await server.stop()
+  })
+
   describe('single manifest file passed to userConfigPath', () => {
     it('should load a plugin from a manifest', async () => {
       const server = await Catalyst.init({
