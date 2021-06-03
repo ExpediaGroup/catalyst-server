@@ -110,7 +110,7 @@ Below is a basic example of a `manifest.json` file:
             "method": "GET",
             "path": "/my-file.txt",
             "handler": {
-                "file": "my-file.txt"
+                "file": "path:./my-file.txt"
             }
         }
     ]
