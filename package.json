@@ -67,9 +67,9 @@
     "@hapi/inert": "^6.0.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "mocha": "^8.0.0",
     "nyc": "^15.1.0",
     "sinon": "^11.0.0",
-    "standard": "^16.0.0"
+    "standard": "^16.0.0",
+    "mocha": "^9.0.0"
   }
 }
