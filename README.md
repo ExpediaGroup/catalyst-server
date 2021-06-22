@@ -59,12 +59,12 @@ const server = await Catalyst.init({
 {
      // server configuration and application context variables.
     "server": {
-        "app": {
-        }
+        "app": {}
     },
     // Hapi plugins
-    "register": {
-    }
+    "register": {},
+    // Hapi routes
+    "routes": []
 }
 ```
 
@@ -91,11 +91,11 @@ Below is a basic example of a `manifest.json` file:
     },
     // Hapi plugins
     "register": {
-        "Inert": {
-            "register": "require:inert"
+        "inert": {
+            "plugin": "require:@hapi/inert"
         },
-        "Vision": {
-            "register": "require:vision",
+        "vision": {
+            "plugin": "require:@hapi/vision",
             "options": {
                 "engines": {
                     "html": "require:handlebars"
@@ -103,7 +103,17 @@ Below is a basic example of a `manifest.json` file:
                 "path": "path:./templates"
             }
         }
-    }
+    },
+    // Hapi routes
+    "routes": [
+        {
+            "method": "GET",
+            "path": "/my-file.txt",
+            "handler": {
+                "file": "path:./my-file.txt"
+            }
+        }
+    ]
 }
 ```
 
@@ -149,7 +159,7 @@ Catalyst-server ships with the following `shortstop` resolvers by default:
     // Hapi plugins
     "register": {
         "crumb": {
-            "register": "require:crumb",
+            "plugin": "require:crumb",
             "options": {
                 "cookieOptions": {
                     "isSecure": {
@@ -229,7 +239,7 @@ Here are some examples of the `shortstop` resolvers which make handling complex 
 
 #### `require:` Require a javascript or json file.
 ```json
-    "register": "require:inert"
+    "plugin": "require:@hapi/inert"
 ```
 * will load the node module `inert` and will set the `register` to what that module exports. This works for js files in you application.
 

@@ -1,0 +1,16 @@
+{
+    "register": {
+        "inert": {
+            "plugin": "require:@hapi/inert"
+        }
+    },
+    "routes": [
+        {
+            "method": "GET",
+            "path": "/my-file.txt",
+            "handler": {
+                "file": "path:./my-file.txt"
+            }
+        }
+    ]
+}
