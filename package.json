@@ -52,7 +52,7 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@hapi/hapi": ">=20.0.0"
+    "@hapi/hapi": ">=20.2.1"
   },
   "dependencies": {
     "@hapi/crumb": "^8.0.0",
@@ -63,7 +63,7 @@
     "shortstop-handlers": "^1.0.1"
   },
   "devDependencies": {
-    "@hapi/hapi": "^20.0.0",
+    "@hapi/hapi": "^20.2.1",
     "@hapi/inert": "^6.0.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
