@@ -38,14 +38,13 @@
         "hapi-pino":{
             "plugin": "require:hapi-pino",
             "options": {
-                "prettyPrint": {
-                    "$filter": "env.NODE_ENV",
-                    "production": false,
-                    "$default": {
-                        "translateTime": true
-                    }
+                "options": {
+                    "prettyPrint": "env.NODE_ENV || production",
+                    // Redact Authorization headers, see https://getpino.io/#/docs/redaction
+                    "redact": ["req.headers.authorization"]
+                  }
+              
                 }
             }
-        }
     }
 }

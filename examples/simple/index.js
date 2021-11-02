@@ -4,8 +4,12 @@
  * http://localhost:8080/hello
  */
 
-const Catalyst = require('../..')
-const Path = require('path')
+const Catalyst = require('../..');
+const Path = require('path');
+const getResponse = [
+  {string: 'string1', number: 1, boolean: true},
+  {string: 'string2', number: 2, boolean: false},
+];
 
 async function start (options = {}) {
   const server = await Catalyst.init({
@@ -13,10 +17,10 @@ async function start (options = {}) {
     userConfigPath: Path.resolve(__dirname, 'manifest.json')
   })
   server.route({
-    path: '/hello',
+    path: '/items',
     method: 'GET',
     handler () {
-      return 'hello'
+      return getResponse;
     }
   })
   await server.start()
