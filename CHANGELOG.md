@@ -4,15 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### 5.0.1 - 2021-11-02
+### 5.0.0 - 2020-11-01
 
-- [Other:Deps] Update @hapi-pino to V8.5.0
-- Updating dependencies to latest versions
-
-### 5.0.0 - 2021-10-31
-
-- [Breaking] Node 14 upgrade
-- Updating dependencies to latest versions
+- [Breaking] Drop support for node 12. Node version 14+ required.
+- Updates @hapi/hapi peer depenency requirement to >=20.2.1
 
 ### 4.0.0 - 2020-08-18
 
