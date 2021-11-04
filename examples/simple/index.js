@@ -1,7 +1,7 @@
 /**
  * After running this example code with node,
  * you can see the results in browser at:
- * http://localhost:8080/hello
+ * http://localhost:8080/items
  */
 
  const Catalyst = require('../..');
