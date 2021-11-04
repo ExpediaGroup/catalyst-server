@@ -34,6 +34,12 @@
                     }
                 }
             }
+        },
+        "hapi-pino":{
+            "plugin": "require:hapi-pino",
+            "options": {
+                "prettyPrint": true
+            }
         }
     }
 }
