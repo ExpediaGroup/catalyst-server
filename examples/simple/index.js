@@ -15,16 +15,18 @@ async function start (options = {}) {
   const server = await Catalyst.init({
     ...options,
     userConfigPath: Path.resolve(__dirname, 'manifest.json')
-  })
+  });
+
   server.route({
     path: '/items',
     method: 'GET',
-    handler () {
-      return getResponse;
+    handler (req, h) {
+      return h.response(getResponse);
     }
-  })
+  });
+  
   await server.start()
-  server.log(['info'], `server running: ${server.info.uri}`)
+  server.log(['info'], `server running: ${server.info.uri}/items`)
   return server
 }
 

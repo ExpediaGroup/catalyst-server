@@ -60,9 +60,11 @@
     "@hapi/hoek": "^9.0.4",
     "@hapi/inert": "^6.0.3",
     "@vrbo/steerage": "^11.0.1",
-    "hapi-pino": "^8.5.0",
+    "hapi-pino": "^9.0.0",
     "joi": "^17.2.0",
-    "shortstop-handlers": "^1.0.1"
+    "pino-pretty": "^7.2.0",
+    "shortstop-handlers": "^1.0.1",
+    "sonic-boom": "^2.3.1"
   },
   "devDependencies": {
     "chai": "^4.2.0",

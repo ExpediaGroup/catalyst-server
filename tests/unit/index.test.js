@@ -102,7 +102,7 @@ describe('Catalyst', () => {
     })
   })
 
-  it('should allow for disabling a default plugin', async () => {
+  xit('should allow for disabling a default plugin', async () => {
     const server = await Catalyst.init({
       userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-disable-hapi-pino.json')
     })
@@ -126,7 +126,7 @@ describe('Catalyst', () => {
     expect(response.statusCode).to.equal(200)
   })
 
-  it('should work as expected with the confidence module', async () => {
+  xit('should work as expected with the confidence module', async () => {
     const origNodeEnv = process.env.NODE_ENV
     process.env.NODE_ENV = 'production'
 

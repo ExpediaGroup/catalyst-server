@@ -3,19 +3,5 @@
    "server": { 
        "app": {
        }
-   },
-   // Hapi plugins
-   "register": {
-        "hapi-pino":{
-            "plugin": "require:hapi-pino",
-            "options": {
-                "ignorePaths": [
-                    "/health", 
-                    "/private", 
-                    "/alive.txt"
-                ],
-                "logEvents": ["response"]
-            }
-        }
    }
 }
