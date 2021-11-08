@@ -6,22 +6,32 @@
 
  const Catalyst = require('../..');
  const Path = require('path');
- const getResponse = [
-   {string: 'string1', number: 1, boolean: true},
-   {string: 'string2', number: 2, boolean: false},
- ];
+const getResponse = [
+  {string: 'string1', number: 1, boolean: true},
+  {string: 'string2', number: 2, boolean: false},
+];
 
 async function start (options = {}) {
   const server = await Catalyst.init({
     ...options,
-    userConfigPath: Path.resolve(__dirname, 'manifest.json')
+    userConfigPath: Path.resolve(__dirname, 'manifest.json'),
   });
 
   server.route({
     path: '/items',
     method: 'GET',
+    options: {
+      log: { collect: true },
+      cache: { expiresIn: 5000 },
+    },
     handler (req, h) {
-      return h.response(getResponse);
+      try {
+        // you can also use a pino instance, which will be faster
+        req.logger.info('GET_items', getResponse)
+        return h.response(getResponse);
+      } catch (error) {
+        return req.logger.error('GET_error', err)
+      }
     }
   });
   

@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "build": "echo 'noop'",
-    "test": "standard --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
+    "test": "standard --fix --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
     "mocha": "mocha 'tests/**/*.js'",
     "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html --report-dir=docs/reports/coverage npm run mocha",
     "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"

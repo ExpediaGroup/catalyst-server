@@ -1,7 +1,31 @@
 {
-    // server configuration and application context variables.
-   "server": { 
-       "app": {
-       }
-   }
+    "server": {
+    },
+    "register": {
+        "hapi-pino": {
+            "plugin": "require:hapi-pino",
+            "options": {
+                "mergeHapiLogData": true,
+                // "level": "env.LOG_LEVEL || 'info'",
+                "ignorePaths": ["/health"],
+                "ignoreTags": ["info"],
+                "tags": { "GET_items": "info" },
+                "logEvents": ["response", "error"],
+                "redact": {
+                  "paths": ["req.headers", "payload.user.password", "payload.file"],
+                  "remove": false
+                },
+                "transport": {
+                    "target": "pino-pretty",
+                    "options": {
+                    "singleLine": true,
+                    "colorize": true,
+                    "mkdir": true,
+                    "append": false,
+                    "destination": "./logs/.info.log"
+                    }
+                }
+            }
+        }
+    }
 }

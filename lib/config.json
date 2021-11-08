@@ -34,31 +34,12 @@
                     }
                 }
             }
+        },
+        "hapi-pino":{
+            "plugin": "require:hapi-pino",
+            "options": {
+                "logEvents": "env.NODE_ENV !== 'production'"
+            }
         }
-        // "hapi-pino":{
-        //     "plugin": "require:hapi-pino",
-        //     "logEvents": ["onPostStart", "onPostStop", "response", "request-error"],
-        //     "options": {
-        //         "logPayload": true,
-        //         "mergeHapiLogData": true,
-        //         "ignorePaths": ["/alive.txt", "/private"],
-        //         "mkdir": true,
-        //         "append": true,
-        //         "dest": "pino-logs",
-        //         "transport": {
-        //             "target": "pino-pretty",
-        //             "options": {
-        //                 "colorize": true,
-        //                 "minimumLevel": "info",
-        //                 "levelFirst": true,
-        //                 "messageFormat": true,
-        //                 "timestampKey": "time",
-        //                 "translateTime": true,
-        //                 "singleLine": true,
-        //                 "destination": 1
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
