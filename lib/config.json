@@ -35,7 +35,7 @@
                 }
             }
         },
-        "hapi-pino":{
+        "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
                 "logEvents": "env.NODE_ENV !== 'production'"

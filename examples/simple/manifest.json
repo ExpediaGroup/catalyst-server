@@ -7,14 +7,13 @@
             "options": {
                 "mergeHapiLogData": true,
                 // "level": "env.LOG_LEVEL || 'info'",
-                "ignorePaths": ["/health"],
-                "ignoreTags": ["info"],
+                "ignorePaths": [
+                    "/health",
+                    "/alive.txt",
+                    "/private"
+                ],
                 "tags": { "GET_items": "info" },
                 "logEvents": ["response", "error"],
-                "redact": {
-                  "paths": ["req.headers", "payload.user.password", "payload.file"],
-                  "remove": false
-                },
                 "transport": {
                     "target": "pino-pretty",
                     "options": {
@@ -22,7 +21,7 @@
                     "colorize": true,
                     "mkdir": true,
                     "append": false,
-                    "destination": "./logs/.info.log"
+                    "destination": "logs/output.log"
                     }
                 }
             }
