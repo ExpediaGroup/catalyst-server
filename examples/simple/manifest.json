@@ -17,11 +17,11 @@
                 "transport": {
                     "target": "pino-pretty",
                     "options": {
-                    "singleLine": true,
-                    "colorize": true,
-                    "mkdir": true,
-                    "append": false,
-                    "destination": "logs/output.log"
+                        "singleLine": true,
+                        "colorize": true,
+                        "mkdir": true,
+                        "append": false,
+                        "destination": "logs/output.log"
                     }
                 }
             }
