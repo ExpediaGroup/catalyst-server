@@ -4,8 +4,8 @@
  * http://localhost:8080/items
  */
 
- const Catalyst = require('../..');
- const Path = require('path');
+const Catalyst = require('../..');
+const Path = require('path');
 const getResponse = [
   {string: 'string1', number: 1, boolean: true},
   {string: 'string2', number: 2, boolean: false},
@@ -24,19 +24,15 @@ async function start (options = {}) {
       log: { collect: true },
       cache: { expiresIn: 5000 },
     },
-    handler (req, h) {
-      try {
-        // you can also use a pino instance, which will be faster
-        req.logger.info('GET_items', getResponse)
-        return h.response(getResponse);
-      } catch (error) {
-        return req.logger.error('GET_error', err)
-      }
-    }
+    handler: async function (req, h) {
+      // you can also use a pino instance, which will be faster
+      req.logger.info('GET_items', getResponse);
+      return await h.response(getResponse);
+    },
   });
   
   await server.start()
-  server.log(['info'], `server running: ${server.info.uri}/items`)
+  server.log(['info'], `items endpoint : ${server.info.uri}/items`)
   return server
 }
 

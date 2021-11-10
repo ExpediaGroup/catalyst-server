@@ -5,15 +5,15 @@
         "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
-                "mergeHapiLogData": true,
-                // "level": "env.LOG_LEVEL || 'info'",
+                "mergeHapiLogData": false,
+                // "level": "debug",
                 "ignorePaths": [
                     "/health",
                     "/alive.txt",
                     "/private"
                 ],
-                "tags": { "GET_items": "info" },
-                "logEvents": ["response", "error"],
+                "tags": { "GET_items": "info", "GET_error": "error" },
+                "logEvents": ["env.NODE_ENV", "response", "request-error"],
                 "transport": {
                     "target": "pino-pretty",
                     "options": {
