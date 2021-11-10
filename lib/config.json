@@ -41,7 +41,7 @@
                 "logEvents": {
                     "$filter": "env.NODE_ENV",
                     "$default": ["response", "request-error"],
-                    "production": false
+                    "development": false
                 }                 
             }
         }
