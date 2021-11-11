@@ -58,7 +58,6 @@
   "dependencies": {
     "@hapi/crumb": "^8.0.0",
     "@hapi/hoek": "^9.0.4",
-    "@hapi/inert": "^6.0.3",
     "@vrbo/steerage": "^11.0.1",
     "hapi-pino": "^9.0.0",
     "pino-pretty": "^7.2.0",
@@ -67,6 +66,7 @@
   },
   "devDependencies": {
     "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "nyc": "^15.1.0",
