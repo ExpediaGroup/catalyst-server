@@ -38,11 +38,17 @@
         "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
-                "logEvents": {
-                    "$filter": "env.NODE_ENV",
-                    "$default": ["response", "request-error"],
-                    "development": false
-                }                 
+                "$filter": "env.NODE_ENV",
+                "$default": {},
+                "development": {
+                    "transport": {
+                        "target": "pino-pretty",
+                        "options": {
+                            "colorize": true,
+                            "translateTime": true
+                        }
+                    }
+                }      
             }
         }
     }
