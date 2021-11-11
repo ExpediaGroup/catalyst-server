@@ -38,6 +38,14 @@
         "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
+                "mergeHapiLogData": false,
+                "ignorePaths": [
+                    "/health",
+                    "/alive.txt",
+                    "/private/metrics",
+                    "/private/datadog/monitors",
+                    "/private/datadog/dashboards"
+                ],
                 "logEvents": {
                     "$filter": "env.NODE_ENV",
                     "$default": ["response", "request-error"],

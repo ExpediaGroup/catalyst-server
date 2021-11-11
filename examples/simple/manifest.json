@@ -13,7 +13,7 @@
                     "/private"
                 ],
                 "tags": { "GET_items": "info", "GET_error": "error" },
-                "logEvents": ["env.NODE_ENV", "response", "request-error"],
+                // transport option is not recomended for prod env
                 "transport": {
                     "target": "pino-pretty",
                     "options": {
