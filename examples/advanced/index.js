@@ -13,9 +13,11 @@ const getResponse = [
 
 async function start (options = {}) {
   const server = await Catalyst.init({
-    ...options,
     userConfigPath: Path.resolve(__dirname, 'manifest.json'),
+    ...options,
   });
+
+  console.log(server.userConfigPath, 'aja')
 
   server.route({
     path: '/items',

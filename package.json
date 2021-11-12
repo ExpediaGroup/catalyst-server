@@ -18,6 +18,7 @@
   "scripts": {
     "build": "echo 'noop'",
     "test": "standard --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
+    "test:fix": "standard --fix --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
     "mocha": "mocha 'tests/**/*.js'",
     "nyc": "nyc --reporter=text --reporter=text-summary --reporter=html --report-dir=docs/reports/coverage npm run mocha",
     "postnyc": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100"
@@ -52,19 +53,20 @@
   ],
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@hapi/hapi": ">=20.2.1"
+    "@hapi/hapi": "^20.2.1"
   },
   "dependencies": {
     "@hapi/crumb": "^8.0.0",
-    "@hapi/hapi": "^20.2.1",
     "@hapi/hoek": "^9.0.4",
-    "@hapi/inert": "^6.0.3",
     "@vrbo/steerage": "^11.0.1",
-    "hapi-pino": "^8.5.0",
+    "hapi-pino": "^9.0.0",
+    "pino-pretty": "^7.2.0",
     "joi": "^17.2.0",
     "shortstop-handlers": "^1.0.1"
   },
   "devDependencies": {
+    "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.3",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "nyc": "^15.1.0",

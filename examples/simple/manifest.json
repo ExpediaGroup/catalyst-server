@@ -1,21 +1,30 @@
 {
-    // server configuration and application context variables.
-   "server": { 
-       "app": {
-       }
-   },
-   // Hapi plugins
-   "register": {
-        "hapi-pino":{
+    "server": {
+    },
+    "register": {
+        "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
+                "mergeHapiLogData": false,
+                // "level": "debug",
                 "ignorePaths": [
-                    "/health", 
-                    "/private", 
-                    "/alive.txt"
+                    "/health",
+                    "/alive.txt",
+                    "/private"
                 ],
-                "logEvents": ["response"]
+                "tags": { "GET_items": "info", "GET_error": "error" },
+                // transport option is not recomended for prod env
+                "transport": {
+                    "target": "pino-pretty",
+                    "options": {
+                        "singleLine": true,
+                        "colorize": true,
+                        "mkdir": true,
+                        "append": false,
+                        "destination": "logs/output.log"
+                    }
+                }
             }
         }
-   }
+    }
 }

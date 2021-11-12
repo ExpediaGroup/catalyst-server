@@ -35,10 +35,20 @@
                 }
             }
         },
-        "hapi-pino":{
+        "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options": {
-                "prettyPrint": true
+                "$filter": "env.NODE_ENV",
+                "$default": {},
+                "development": {
+                    "transport": {
+                        "target": "pino-pretty",
+                        "options": {
+                            "colorize": true,
+                            "translateTime": true
+                        }
+                    }
+                }      
             }
         }
     }

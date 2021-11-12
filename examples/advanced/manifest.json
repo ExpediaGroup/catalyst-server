@@ -1,0 +1,12 @@
+{
+    "server": {
+    },
+    "register": {
+        "hapi-pino": {
+            "plugin": "require:hapi-pino",
+            "options": {
+                "instance": "require:./pino-options.js"
+            }
+        }
+    }
+}
