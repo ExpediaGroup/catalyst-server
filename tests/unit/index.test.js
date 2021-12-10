@@ -268,8 +268,8 @@ describe('Catalyst', () => {
             }
           }
         })
-    
-        expect(server.app.config.get("foo")).to.equal('bar')
+
+        expect(server.app.config.get('foo')).to.equal('bar')
       })
 
       it('should apply an overrides object to the config', async () => {
@@ -283,8 +283,8 @@ describe('Catalyst', () => {
             }
           }
         })
-    
-        expect(server.app.config.get("foo")).to.equal('bar')
+
+        expect(server.app.config.get('foo')).to.equal('bar')
       })
     })
   })
