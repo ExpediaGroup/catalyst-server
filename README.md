@@ -68,6 +68,16 @@ const server = await Catalyst.init({
 }
 ```
 
+## `Catalyst.init()` Options
+
+-   `userConfigPath` - Path to the json configuration file (see examples).
+-   `onConfig` - Hook for modifying config prior to creating list of plugins to register (can be async). `(config) => {return config;}`
+-   `defaults` - default pre-resolved configuration values. Can be an object or a path to a json file.
+-   `overrides` - optional override pre-resolved configuration values. Can be an object or a path to a json file.
+-   `baseDir` - Alternative location to base [shortstop](https://github.com/krakenjs/shortstop) relative paths from.
+-   `environment` - Additional criteria for [confidence](https://github.com/hapijs/confidence) property resolution and defaults to `{ env: process.env }`.
+-   `shortstopHandlers` - Object for additional shortstop handlers.
+
 ## Configuration and Composition
 
 Catalyst-server uses [`@vrbo/steerage`](https://github.com/expediagroup/steerage) to configure and compose your application.  It is environment aware and has some configuration protocols to resolve paths, read environment variables, import other JSON files, and more.

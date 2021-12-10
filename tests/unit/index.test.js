@@ -255,5 +255,37 @@ describe('Catalyst', () => {
 
       return expect(promise).to.be.rejectedWith(Error)
     })
+
+    describe('should use determination properties `defaults` and `overrides`', () => {
+      it('should apply a defaults object to the config', async () => {
+        const server = await Catalyst.init({
+          userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest.json'),
+          defaults: {
+            server: {
+              app: {
+                foo: 'bar'
+              }
+            }
+          }
+        })
+    
+        expect(server.app.config.get("foo")).to.equal('bar')
+      })
+
+      it('should apply an overrides object to the config', async () => {
+        const server = await Catalyst.init({
+          userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest.json'),
+          overrides: {
+            server: {
+              app: {
+                foo: 'bar'
+              }
+            }
+          }
+        })
+    
+        expect(server.app.config.get("foo")).to.equal('bar')
+      })
+    })
   })
 })
