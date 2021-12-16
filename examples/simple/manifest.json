@@ -1,30 +1,5 @@
 {
     "server": {
     },
-    "register": {
-        "hapi-pino": {
-            "plugin": "require:hapi-pino",
-            "options": {
-                "mergeHapiLogData": false,
-                // "level": "debug",
-                "ignorePaths": [
-                    "/health",
-                    "/alive.txt",
-                    "/private"
-                ],
-                "ignoredEventTags": { "log": ["client"], "request": "*" },
-                // transport option is not recomended for prod env
-                "transport": {
-                    "target": "pino-pretty",
-                    "options": {
-                        "singleLine": false,
-                        "colorize": true,
-                        "mkdir": true,
-                        "append": false,
-                        "destination": "logs/output.log"
-                    }
-                }
-            }
-        }
-    }
+    "register": {}
 }
