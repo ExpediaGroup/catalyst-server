@@ -12,12 +12,12 @@
                     "/alive.txt",
                     "/private"
                 ],
-                "tags": { "GET_items": "info", "GET_error": "error" },
+                "ignoredEventTags": { "log": ["client"], "request": "*" },
                 // transport option is not recomended for prod env
                 "transport": {
                     "target": "pino-pretty",
                     "options": {
-                        "singleLine": true,
+                        "singleLine": false,
                         "colorize": true,
                         "mkdir": true,
                         "append": false,
