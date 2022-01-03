@@ -1,5 +1,53 @@
 {
     "server": {
     },
-    "register": {}
+    "register": {
+        "hapi-pino": {
+            "plugin": "require:hapi-pino",
+            "options": {
+                "ignoredEventTags": { "log": ["client"], "request": "*" },
+                // transport option is not recomended for prod env
+                "transport": {
+                  "targets": [
+                    {
+                      "level": "info",
+                      "target": "pino-pretty",
+                      "options": {
+                        "singleLine": false,
+                        "ignorePaths": ["/favicon.ico"],
+                        "logRequestComplete": false,
+                        "append": true,
+                        "mkdir": true,
+                        "destination": "logs/.info.log"
+                      }
+                    },
+                    {
+                      "level": "error",
+                      "target": "pino-pretty",
+                      "options": {
+                        "singleLine": false,
+                        "ignorePaths": ["/favicon.ico"],
+                        "logRequestComplete": false,
+                        "append": true,
+                        "mkdir": true,
+                        "destination": "logs/.error.log"
+                      }
+                    },
+                    {
+                      "level": "warn",
+                      "target": "pino-pretty",
+                      "options": {
+                        "singleLine": false,
+                        "ignorePaths": ["/favicon.ico"],
+                        "logRequestComplete": false,
+                        "append": true,
+                        "mkdir": true,
+                        "destination": "logs/.warn.log"
+                      }
+                    }
+                  ]
+                }
+              }
+          }
+    }
 }
