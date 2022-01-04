@@ -5,8 +5,6 @@
  */
 
 const Catalyst = require('../..');
-const Pino = require('pino');
-const HapiPino = require('hapi-pino');
 const Path = require('path');
 const getResponse = [
   {string: 'string1', number: 1, boolean: true},
