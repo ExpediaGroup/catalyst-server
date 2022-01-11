@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "build": "echo 'noop'",
+    "test-fix": "standard --fix --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
     "test": "standard --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
     "test:fix": "standard --fix --env mocha './lib/**/*.js' './tests/**/*.js' && npm run nyc",
     "mocha": "mocha 'tests/**/*.js'",
@@ -61,7 +62,7 @@
     "@vrbo/steerage": "^12.1.0",
     "hapi-pino": "^9.0.0",
     "joi": "^17.2.0",
-    "pino": "^7.5.1",
+    "pino-http-print": "^3.1.0",
     "pino-pretty": "^7.2.0",
     "shortstop-handlers": "^1.0.1"
   },
