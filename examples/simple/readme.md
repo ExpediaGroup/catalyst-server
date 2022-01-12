@@ -39,10 +39,18 @@ Install Pino-pretty globally
 It is recommended to use pino-pretty with pino by piping output to the CLI tool:
 
 ```
-node . | pino-pretty --config=.pino-prettyrc
+node --max-http-header-size=32768 . | pino-pretty --config=.pino-prettyrc
 ```
 
 .pino-pretty pass the [CLI Arguments](https://github.com/pinojs/pino-pretty#cli-arguments)
 
+
+
+_node js profile review_
+
+```
+clinic doctor --autocannon [ /items ] -- node --max-http-header-size=32768 ./index | pino-pretty --config=.pino-prettyrc
+
+```
 
 
