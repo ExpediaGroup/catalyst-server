@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/expediagroup/catalyst-server/compare/v5.2.0...v5.2.1) (2022-01-12)
+
+
+### Bug Fixes
+
+* update steerage to 12.1.3 ([#51](https://github.com/expediagroup/catalyst-server/issues/51)) ([abf67f6](https://github.com/expediagroup/catalyst-server/commit/abf67f6ce7d1ab05f90cdc47b2b0b7f29fbc5a3c))
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
