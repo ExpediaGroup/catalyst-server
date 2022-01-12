@@ -2,6 +2,8 @@
 
 The follow diagram explain how our catalyst server manage the logs
 
+![threads-diagram drawio](https://user-images.githubusercontent.com/88118994/149195822-de5d33ad-f29f-48ff-840b-ce2fb41eb08a.png)
+
 ## [Pino-pretty](https://github.com/pinojs/pino-pretty) logs for development mode:
 
 install pino-pretty as a development dependency.
