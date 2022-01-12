@@ -4,7 +4,6 @@
         "port": "execBase:./utils#resolvePort",
         // resolve host based on env var HOSTNAME, falls back to default '0.0.0.0'
         "host": "execBase:./utils#resolveHost",
-        "debug": false,
         "state": {
             "strictHeader": false
         },
@@ -35,22 +34,22 @@
                     }
                 }
             }
+        },
+        "hapi-pino": {
+            "plugin": "require:hapi-pino",
+            "options": {
+                "$filter": "env.NODE_ENV",
+                "$default": {},
+                "development": {
+                    "transport": {
+                        "target": "pino-pretty",
+                        "options": {
+                            "colorize": true,
+                            "translateTime": true
+                        }
+                    }
+                }      
+            }
         }
-        // "hapi-pino": {
-        //     "plugin": "require:hapi-pino",
-        //     "options": {
-        //         "$filter": "env.NODE_ENV",
-        //         "$default": {},
-        //         "development": {
-        //             "transport": {
-        //                 "target": "pino-pretty",
-        //                 "options": {
-        //                     "colorize": true,
-        //                     "translateTime": true
-        //                 }
-        //             }
-        //         }
-        //     }
-        // }
     }
 }

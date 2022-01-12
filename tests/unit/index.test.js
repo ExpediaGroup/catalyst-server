@@ -102,7 +102,7 @@ describe('Catalyst', () => {
     })
   })
 
-  xit('should allow for disabling a default plugin', async () => {
+  it('should allow for disabling a default plugin', async () => {
     const server = await Catalyst.init({
       userConfigPath: Path.join(__dirname, '..', 'fixtures/manifest-disable-hapi-pino.json')
     })
@@ -139,7 +139,7 @@ describe('Catalyst', () => {
     // verify that the default plugins were not overwritten
     const registeredPluginNames = Object.keys(server.registrations)
     expect(registeredPluginNames).to.include.members(prodPlugins)
-    // expect(registeredPluginNames).to.not.include('hapi-pino')
+    expect(registeredPluginNames).to.not.include('hapi-pino')
 
     const response = await server.inject('/test')
 
