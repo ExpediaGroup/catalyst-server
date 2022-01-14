@@ -34,12 +34,21 @@ manifest.json
 
 Install Pino-pretty globally
 
-`npm install -g pino-pretty`
+`npm install pino-pretty`
 
 It is recommended to use pino-pretty with pino by piping output to the CLI tool:
 
 ```
-node --max-http-header-size=32768 . | pino-pretty --config=.pino-prettyrc
+node --max-http-header-size=32768 ./examples/simple/index.js | ./node_modules/.bin/pino-pretty --config=./examples/simple/.pino-prettyrc
+```
+
+.pino-prettyrc
+```
+{
+    "colorize": true,
+    "singleLine": true
+    // ... pass pino-pretty options here
+}
 ```
 
 .pino-pretty pass the [CLI Arguments](https://github.com/pinojs/pino-pretty#cli-arguments)
@@ -49,7 +58,7 @@ node --max-http-header-size=32768 . | pino-pretty --config=.pino-prettyrc
 _node js profile review_
 
 ```
-clinic doctor --autocannon [ /items ] -- node --max-http-header-size=32768 ./index | pino-pretty --config=.pino-prettyrc
+clinic doctor --autocannon [ /items ] -- node --max-http-header-size=32768 ./examples/simple/index.js | ./node_modules/.bin/pino-pretty --config=./examples/simple/.pino-prettyrc
 
 ```
 
