@@ -1,6 +1,6 @@
-# Catalyst server logs configuration
+# Catalyst server log configuration
 
-The follow diagram explain how our catalyst server manage the logs
+The follow diagram explains how our catalyst server manages logs
 
 ![threads-diagram drawio](https://user-images.githubusercontent.com/88118994/149195822-de5d33ad-f29f-48ff-840b-ce2fb41eb08a.png)
 
@@ -8,7 +8,7 @@ The follow diagram explain how our catalyst server manage the logs
 
 install pino-pretty as a development dependency.
 
-` npm install -D pino-pretty `
+` npm install --save-dev pino-pretty `
 
 manifest.json
 ```
@@ -32,7 +32,7 @@ manifest.json
 
 ## [Pino-pretty](https://github.com/pinojs/pino/blob/master/docs/pretty.md) logs for production mode(legacy transport):
 
-Install Pino-pretty globally
+Install Pino-pretty
 
 `npm install pino-pretty`
 
