@@ -1,0 +1,15 @@
+{
+    "server": {
+        "debug": false // disable Hapi debug console logging
+    },
+    "register": {
+        "hapi-pino": {
+            "plugin": "require:hapi-pino",
+            "options":{
+                "logRequestComplete": false,
+                "ignoredEventTags": { "log": ["client"], "request": "*" },
+                "logPayload": false
+              }
+        }
+    }
+}
