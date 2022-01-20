@@ -20,5 +20,10 @@ pump(process.stdin, split(JSON.parse), myTransport)
 Logs can now be consumed using shell piping:
 
 ```
-node --max-http-header-size=32768 ./examples/custom-pipeline/index.js | node ./examples/custom-pipeline/my-transport-process.js
+node --max-http-header-size=32768 ./examples/custom-pipeline/index.js | node ./examples/custom-pipeline/my-transport-process.js -d=1
+```
+Or logs can be transport to a file:
+
+```
+node --max-http-header-size=32768 ./examples/custom-pipeline/index.js | node ./examples/custom-pipeline/my-transport-process.js -d="logs/log.log"
 ```
