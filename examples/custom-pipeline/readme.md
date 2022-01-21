@@ -18,7 +18,7 @@ const sonic = require('sonic-boom')
  * node . | node my-transport-process.js --d="logs/log.log"
 */
 args
-  .option(['d','destination'], 'The port on which the app will be running')
+  .option(['d','destination'], 'The final destination for the logs')
  
 const flagOptions = args.parse(process.argv);
 
