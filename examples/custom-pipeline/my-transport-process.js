@@ -19,7 +19,7 @@ let destination = flagOptions.destination;
 if (!destination) throw new Error('destination is required');
 
 const myTransport = through.obj(async function (chunk, enc, cb) {
-  if(destination === 1 ){
+  if(destination === 1 ) {
     console.log(chunk)
   } else {
     let WriteTodestination =  sonic({
