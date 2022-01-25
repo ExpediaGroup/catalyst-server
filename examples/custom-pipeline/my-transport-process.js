@@ -21,7 +21,7 @@ if (!destination) throw new Error('destination is required');
 const myTransport = through.obj(async function (chunk, enc, cb) {
   if(destination === 1 ){
     console.log(chunk)
-  } else{
+  } else {
     let WriteTodestination =  sonic({
       dest: destination || 1,
       append: true,
