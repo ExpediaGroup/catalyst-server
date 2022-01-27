@@ -1,5 +1,6 @@
 {
     "server": {
+        "debug": false
     },
     "register": {
         "hapi-pino": {
@@ -18,10 +19,10 @@
                     "target": "pino-pretty",
                     "options": {
                         "singleLine": true,
-                        "colorize": true,
-                        "mkdir": true,
-                        "append": false,
-                        "destination": "logs/output.log"
+                        "colorize": true
+                        // "mkdir": true,
+                        // "append": false,
+                        // "destination": "logs/output.log"
                     }
                 }
             }
