@@ -30,32 +30,28 @@ manifest.json
     }
 ```
 
-## [Pino-pretty](https://github.com/pinojs/pino/blob/master/docs/pretty.md) logs for production mode(legacy transport):
-
-Install Pino-pretty
-
-`npm install pino-pretty`
-
-It is recommended to use pino-pretty with pino by piping output to the CLI tool:
+pass the `NODE_ENV` as following:
 
 ```
-node --max-http-header-size=32768 ./examples/simple/index.js | ./node_modules/.bin/pino-pretty --config=./examples/simple/.pino-prettyrc
+NODE_ENV=development node .
 ```
 
-.pino-prettyrc
+## [Pino/file](https://github.com/pinojs/pino/blob/HEAD/docs/transports.md#pinofile) transport logs to stdout or file.
+
 ```
-{
-    "colorize": true,
-    "singleLine": true
-    // ... pass pino-pretty options here
-}
+    "transport": {
+        "targets": [
+            {
+                "target": "pino/file",
+                "options": {
+                    "destination": 1
+                }
+            }
+        ]
+    }
 ```
 
-.pino-pretty pass the [CLI Arguments](https://github.com/pinojs/pino-pretty#cli-arguments)
-
-
-
-_node js profile review_
+## node js profile review
 
 ```
 clinic doctor --autocannon [ /items ] -- node --max-http-header-size=32768 ./examples/simple/index.js | ./node_modules/.bin/pino-pretty --config=./examples/simple/.pino-prettyrc

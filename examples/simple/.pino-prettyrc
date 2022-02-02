@@ -1,5 +1,0 @@
-{
-    "colorize": true,
-    "singleLine": true
-    // ... pass pino-pretty options here
-}

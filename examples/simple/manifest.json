@@ -6,10 +6,32 @@
         "hapi-pino": {
             "plugin": "require:hapi-pino",
             "options":{
-                "logRequestComplete": false,
-                "ignoredEventTags": { "log": ["client"], "request": "*" },
-                "logPayload": false
-              }
+                "$filter": "env.NODE_ENV",
+                "$default": {
+                    "logRequestComplete": false,
+                    "ignoredEventTags": { "log": ["client"], "request": "*" },
+                    "logPayload": false,
+                    "transport": {
+                        "targets": [
+                            {
+                                "target": "pino/file",
+                                "options": {
+                                    "destination": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                "development": {
+                    "transport": {
+                        "target": "pino-pretty",
+                        "options": {
+                            "colorize": true,
+                            "translateTime": true
+                        }
+                    }
+                }
+            }
         }
     }
 }
