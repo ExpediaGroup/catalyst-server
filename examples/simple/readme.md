@@ -36,7 +36,7 @@ pass the `NODE_ENV` as following:
 NODE_ENV=development node .
 ```
 
-## [Pino/file](https://github.com/pinojs/pino/blob/HEAD/docs/transports.md#pinofile) transport logs to stdout or file.
+## [Pino/file](https://github.com/pinojs/pino/blob/HEAD/docs/transports.md#pinofile) transport logs to stdout or file for production.
 
 ```
     "transport": {
