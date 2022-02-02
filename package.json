@@ -68,8 +68,7 @@
     "hapi-pino": "^9.1.1",
     "joi": "^17.2.0",
     "pino-pretty": "^7.2.0",
-    "shortstop-handlers": "^1.0.1",
-    "through2": "^4.0.2"
+    "shortstop-handlers": "^1.0.1"
   },
   "devDependencies": {
     "@hapi/hapi": "^20.2.1",
