@@ -1,27 +1,34 @@
 {
     "server": {
+        "debug": false // disable Hapi debug console logging
     },
     "register": {
         "hapi-pino": {
             "plugin": "require:hapi-pino",
-            "options": {
-                "mergeHapiLogData": false,
-                // "level": "debug",
-                "ignorePaths": [
-                    "/health",
-                    "/alive.txt",
-                    "/private"
-                ],
-                "tags": { "GET_items": "info", "GET_error": "error" },
-                // transport option is not recomended for prod env
-                "transport": {
-                    "target": "pino-pretty",
-                    "options": {
-                        "singleLine": true,
-                        "colorize": true,
-                        "mkdir": true,
-                        "append": false,
-                        "destination": "logs/output.log"
+            "options":{
+                "$filter": "env.NODE_ENV",
+                "$default": {
+                    "logRequestComplete": false,
+                    "ignoredEventTags": { "log": ["client"], "request": "*" },
+                    "logPayload": false,
+                    "transport": {
+                        "targets": [
+                            {
+                                "target": "pino/file",
+                                "options": {
+                                    "destination": 1
+                                }
+                            }
+                        ]
+                    }
+                },
+                "development": {
+                    "transport": {
+                        "target": "pino-pretty",
+                        "options": {
+                            "colorize": true,
+                            "translateTime": true
+                        }
                     }
                 }
             }
