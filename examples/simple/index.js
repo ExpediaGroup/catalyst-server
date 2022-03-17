@@ -5,6 +5,7 @@
  */
 
 const Catalyst = require('../..');
+Catalyst.tracer();
 const Path = require('path');
 const getResponse = [
   {string: 'string1', number: 1, boolean: true},
