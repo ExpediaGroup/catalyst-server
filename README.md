@@ -77,6 +77,7 @@ const server = await Catalyst.init({
 -   `baseDir` - Alternative location to base [shortstop](https://github.com/krakenjs/shortstop) relative paths from.
 -   `environment` - Additional criteria for [confidence](https://github.com/hapijs/confidence) property resolution and defaults to `{ env: process.env }`.
 -   `shortstopHandlers` - Object for additional shortstop handlers.
+-   `enableShutdownListeners` - Flag indicator for enabling or disabling execution of shutdown listeners, default 'true'
 
 ## Configuration and Composition
 
