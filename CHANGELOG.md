@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/expediagroup/catalyst-server/compare/v5.2.1...v5.3.0) (2022-03-29)
+
+
+### Features
+
+* small readme change to retrigger release ([707bcda](https://github.com/expediagroup/catalyst-server/commit/707bcda1eab529ea11523324ce303784d9b7d8e5))
+
 ## [5.2.1](https://github.com/expediagroup/catalyst-server/compare/v5.2.0...v5.2.1) (2022-01-12)
 
 
