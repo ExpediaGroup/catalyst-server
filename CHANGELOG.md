@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/expediagroup/catalyst-server/compare/v5.3.0...v5.4.0) (2022-12-06)
+
+
+### Features
+
+* empty commit to trigger release pipeline ([#58](https://github.com/expediagroup/catalyst-server/issues/58)) ([c228fa4](https://github.com/expediagroup/catalyst-server/commit/c228fa46c719322568e7d2047ad4fdb341604aa7))
+
 # [5.3.0](https://github.com/expediagroup/catalyst-server/compare/v5.2.1...v5.3.0) (2022-03-29)
 
 ### Features
