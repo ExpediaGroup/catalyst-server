@@ -1,3 +1,10 @@
+# [5.5.0](https://github.com/expediagroup/catalyst-server/compare/v5.4.0...v5.5.0) (2022-12-07)
+
+
+### Features
+
+* Upgrade to node v16 ([#57](https://github.com/expediagroup/catalyst-server/issues/57)) ([d1c765f](https://github.com/expediagroup/catalyst-server/commit/d1c765f103087e3ec0624b8125e401dda29952c7))
+
 # [5.4.0](https://github.com/expediagroup/catalyst-server/compare/v5.3.0...v5.4.0) (2022-12-06)
 
 
