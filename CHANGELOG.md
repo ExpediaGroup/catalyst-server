@@ -1,3 +1,10 @@
+## [5.5.1](https://github.com/expediagroup/catalyst-server/compare/v5.5.0...v5.5.1) (2023-01-09)
+
+
+### Bug Fixes
+
+* bump json5 from 1.0.1 to 1.0.2 ([#59](https://github.com/expediagroup/catalyst-server/issues/59)) ([1b26e07](https://github.com/expediagroup/catalyst-server/commit/1b26e07c872045c39e9b0a26b286ee06035d3528))
+
 # [5.5.0](https://github.com/expediagroup/catalyst-server/compare/v5.4.0...v5.5.0) (2022-12-07)
 
 
