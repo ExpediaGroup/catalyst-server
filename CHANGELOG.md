@@ -1,3 +1,10 @@
+## [5.5.2](https://github.com/expediagroup/catalyst-server/compare/v5.5.1...v5.5.2) (2023-02-15)
+
+
+### Bug Fixes
+
+* Altering the order of semantic release config file to have it correct ([#77](https://github.com/expediagroup/catalyst-server/issues/77)) ([1342685](https://github.com/expediagroup/catalyst-server/commit/1342685b0311257a88573eae277977b3e4582a68))
+
 ## [5.5.1](https://github.com/expediagroup/catalyst-server/compare/v5.5.0...v5.5.1) (2023-01-09)
 
 

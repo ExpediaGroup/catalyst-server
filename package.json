@@ -1,7 +1,7 @@
 {
   "name": "@vrbo/catalyst-server",
   "description": "Configuration and composition management for Hapi.js applications.",
-  "version": "5.2.0",
+  "version": "5.5.2",
   "keywords": [
     "hapi.js",
     "catalyst",
