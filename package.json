@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@hapi/hapi": "^20.2.1",
-    "@hapi/inert": "^6.0.3 || ^7.0.0",
+    "@hapi/inert": "^7.0.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
     "chai": "^4.2.0",
