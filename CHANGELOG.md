@@ -1,3 +1,10 @@
+# [5.6.0](https://github.com/expediagroup/catalyst-server/compare/v5.5.2...v5.6.0) (2023-03-09)
+
+
+### Features
+
+* Updating some dependencies ([#80](https://github.com/expediagroup/catalyst-server/issues/80)) ([e8212c1](https://github.com/expediagroup/catalyst-server/commit/e8212c18ce07d815173b1283cdb36f90af97ac89))
+
 ## [5.5.2](https://github.com/expediagroup/catalyst-server/compare/v5.5.1...v5.5.2) (2023-02-15)
 
 
