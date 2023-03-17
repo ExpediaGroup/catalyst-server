@@ -1,16 +1,16 @@
-# @vrbo/catalyst-server
-[![NPM Version](https://img.shields.io/npm/v/@vrbo/catalyst-server.svg?style=flat-square)](https://www.npmjs.com/package/@vrbo/catalyst-server)
-![](https://github.com/ExpediaGroup/catalyst-server/workflows/Node_CI/badge.svg)
-[![Dependency Status](https://david-dm.org/expediagroup/catalyst-server.svg?theme=shields.io)](https://david-dm.org/expediagroup/catalyst-server)
+![Node.js Version](https://img.shields.io/badge/node->=14.0.0-brightgreen.svg?longCache=true&style=flat&logo=node.js)
+![NPM Version](https://img.shields.io/badge/npm->=6.0.0-brightgreen.svg?longCache=true&style=flat&logo=npm)
 [![NPM Downloads](https://img.shields.io/npm/dm/@vrbo/catalyst-server.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vrbo/catalyst-server)
 
-*   [Introduction](#introduction)
-*   [Usage](#usage)
-*   [Configuration and Composition](#configuration-and-composition)
-    *   [Basic](#basic)
-    *   [Environment Aware](#environment-aware)
-    *   [Advanced](#advanced)
-*   [Further Reading](#further-reading)
+# @vrbo/catalyst-server
+
+* [Introduction](#introduction)
+* [Usage](#usage)
+* [Configuration and Composition](#configuration-and-composition)
+  * [Basic](#basic)
+  * [Environment Aware](#environment-aware)
+  * [Advanced](#advanced)
+* [Further Reading](#further-reading)
 
 ## Introduction
 Catalyst-server is a configuration and composition management tool for Hapi.js applications. It allows for composition and configuration that is environment aware and extensible for a web application. This is managed from one or more `manifest.json` files. The `userConfigPath` accepts a string that is a path to a single `manifest.json` file, or an array of path strings to support merging multiple manifest files. Duplicate keys in configuration files will be overwritten upon merging. If an array is passed, values of the config file that is the last index of `userConfigPath` takes precedence when merging, otherwise values from the single config file passed to `userConfigPath` takes precedence. The server also will include sensible defaults and implementations  (like [hapi-pino](https://github.com/pinojs/hapi-pino) for logging and [crumb](https://github.com/hapijs/crumb) for CSRF)
@@ -55,7 +55,7 @@ const server = await Catalyst.init({
 ```
 
 #### manifest.json
-```js
+```json5
 {
      // server configuration and application context variables.
     "server": {
@@ -70,14 +70,14 @@ const server = await Catalyst.init({
 
 ## `Catalyst.init()` Options
 
--   `userConfigPath` - Path to the json configuration file (see examples).
--   `onConfig` - Hook for modifying config prior to creating list of plugins to register (can be async). `(config) => {return config;}`
--   `defaults` - default pre-resolved configuration values. Can be an object or a path to a json file.
--   `overrides` - optional override pre-resolved configuration values. Can be an object or a path to a json file.
--   `baseDir` - Alternative location to base [shortstop](https://github.com/krakenjs/shortstop) relative paths from.
--   `environment` - Additional criteria for [confidence](https://github.com/hapijs/confidence) property resolution and defaults to `{ env: process.env }`.
--   `shortstopHandlers` - Object for additional shortstop handlers.
--   `enableShutdownListeners` - Flag indicator for enabling or disabling execution of shutdown listeners, default 'true'
+- `userConfigPath` - Path to the json configuration file (see examples).
+- `onConfig` - Hook for modifying config prior to creating list of plugins to register (can be async). `(config) => {return config;}`
+- `defaults` - default pre-resolved configuration values. Can be an object or a path to a json file.
+- `overrides` - optional override pre-resolved configuration values. Can be an object or a path to a json file.
+- `baseDir` - Alternative location to base [shortstop](https://github.com/krakenjs/shortstop) relative paths from.
+- `environment` - Additional criteria for [confidence](https://github.com/hapijs/confidence) property resolution and defaults to `{ env: process.env }`.
+- `shortstopHandlers` - Object for additional shortstop handlers.
+- `enableShutdownListeners` - Flag indicator for enabling or disabling execution of shutdown listeners, default 'true'
 
 ## Configuration and Composition
 
@@ -91,7 +91,7 @@ Below is a basic example of a `manifest.json` file:
 
 #### manifest.json
 
-```js
+```json5
 {
      // server configuration and application context variables.
     "server": {
@@ -155,7 +155,7 @@ Catalyst-server ships with the following `shortstop` resolvers by default:
 
 #### Environment based manifest.json
 
-```js
+```json5
 {
      // server configuration and application context variables.
     "server": {
@@ -206,7 +206,7 @@ const urlPrefix = server.app.config.get('urlPrefix');
 
 Using a filter, you can easily enable/disable a plugin for a given environment. See the code below for an example, where we disable `hapi-pino` in development mode, and enable it in all other environments:
 
-```javascript
+```json
 {
     "register": {
         "hapi-pino": {
@@ -225,74 +225,92 @@ Using a filter, you can easily enable/disable a plugin for a given environment. 
 Here are some examples of the `shortstop` resolvers which make handling complex configuration and composition rather straight forward.
 
 #### `file:` Reading a file into a value.
-```json
-    "key": "file:./pgp_pub.key"
-```
 * loads the file `pgp_pub.key` and will set the value `key` to the contents of that file.
+  ```json
+  {
+      "key": "file:./pgp_pub.key"
+  }
+  ```
 
 #### `path:` Resolve a path.
-```json
-    "path": "path:./templates"
-```
 * will resolve the path of `./templates` and will set the value `path` to the fully resolved path.
+  ```json
+  {
+      "path": "path:./templates"
+  }
+  ```
 
 #### `base64:` Resolve a base64 string.
-```json
-    "bytes": "base64:SGVsbG8="
-```
 * will decode the base64 string `SGVsbG8=` and will set the `bytes` value to a buffer from the base64 string.
+  ```json
+  {
+      "bytes": "base64:SGVsbG8="
+  }
+  ```
 
 #### `env:` Access an environment variable.
-```json
-    "dbHost": "env:PG_HOST"
-```
 * will evaluate the environment variable `PG_HOST` and will set the `dbHost` value to the environment variable value.
+  ```json
+  {
+      "dbHost": "env:PG_HOST"
+  }
+  ```
 
 #### `require:` Require a javascript or json file.
-```json
-    "plugin": "require:@hapi/inert"
-```
 * will load the node module `inert` and will set the `register` to what that module exports. This works for js files in you application.
+  ```json
+  {
+      "plugin": "require:@hapi/inert"
+  }
+  ```
 
 #### `exec:` Execute a function in a file.
-```json
-    "status": "exec:./callStatus#get"
-```
 * will load the file `callStatus.js` and will run the exported function `get` and whatever value is return will be set for the `status` value.
+  ```json
+  {
+      "status": "exec:./callStatus#get"
+  }
+  ```
 
 #### `glob:` Match files using the patterns shell uses.
-```json
-    "files": "glob:./assets/**/*.js"
-```
 * will use [glob](https://github.com/isaacs/node-glob) to evaluate `./assets/**/*.js` and sets the value of `files` to an array of files that match the glob string.
+  ```json
+  {
+      "files": "glob:./assets/**/*.js"
+  }
+  ```
 
 #### `import:` Imports another JSON file, supports comments.
-```json
-    "data": "import:./data/salt.json"
-```
 * will load a json file `./data/salt.json`, evaluate it (ignoring comments) and set `data` to that value.
+  ```json
+  {
+      "data": "import:./data/salt.json"
+  }
+  ```
 
 #### `eval:` Safely execute a string as javascript code.
-```json
-    "start": "eval:new Date().toISOString()"
-```
 * will use [vm](https://nodejs.org/api/vm.html) to evaluate the string and set the `start` to the current date time as an ISO string.
-
-```js
-    {
-        "server": {
-            "app":{
-                "first": "abc",
-                "second": "xyz",
-                "child": {
-                    "value":"eval:${server.app.first}_${server.app.second}"
-                }
-            }
-        }
-    }
-```
+  ```json
+  {
+      "start": "eval:new Date().toISOString()"
+  }
+  ```
 
 * `eval` can also be used to reference other values in the `manifest`. In the above example the `child/value` in `server/app` will be set to `'abc_xyz'`.
+  ```json5
+  {
+      "server": {
+          "app":{
+              "first": "abc",
+              "second": "xyz",
+              "child": {
+                  "value":"eval:${server.app.first}_${server.app.second}"
+              }
+          }
+      }
+  }
+  ```
+
 
 ## Example Code
 
@@ -300,7 +318,7 @@ See the [examples](examples) folder for example code.
 
 ## Further Reading
 
-*   [License](LICENSE)
-*   [Code of conduct](CODE_OF_CONDUCT.md)
-*   [Contributing](CONTRIBUTING.md)
-*   [Changelog](CHANGELOG.md)
+* [License](LICENSE)
+* [Code of conduct](CODE_OF_CONDUCT.md)
+* [Contributing](CONTRIBUTING.md)
+* [Changelog](CHANGELOG.md)
