@@ -71,7 +71,7 @@
     "shortstop-handlers": "^1.0.1"
   },
   "devDependencies": {
-    "@hapi/hapi": "^20.2.1",
+    "@hapi/hapi": "^21.3.0",
     "@hapi/inert": "^7.0.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
@@ -85,6 +85,6 @@
     "standard": "^17.0.0"
   },
   "peerDependencies": {
-    "@hapi/hapi": "^20.2.1"
+    "@hapi/hapi": "^21.3.0"
   }
 }
