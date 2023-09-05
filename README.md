@@ -2,6 +2,9 @@
 ![NPM Version](https://img.shields.io/badge/npm->=6.0.0-brightgreen.svg?longCache=true&style=flat&logo=npm)
 [![NPM Downloads](https://img.shields.io/npm/dm/@vrbo/catalyst-server.svg?style=flat-square)](https://npm-stat.com/charts.html?package=@vrbo/catalyst-server)
 
+# :warning: **Deprecation Notice** :warning:
+This package is now deprecated and will not receive any updates in the future.
+
 # @vrbo/catalyst-server
 
 * [Introduction](#introduction)
